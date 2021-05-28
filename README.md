@@ -41,27 +41,36 @@ It defines the following functions:
     * All available native OAI verbs and parameter/value pairs.
     
 - **download_record(ID, metadataPrefix = 'mods')**:
-
+- 
     Downloads a certain metadata record from OAI to a single XML file.
     Throws a notice if metadata file already exists and leaves the existing one.
     
     Parameters:
-    * ID = E-rara ID of the wanted record.
-    * metadataPrefix = Metadata format to be delivered (default value is MODS).
+    ID = E-rara ID of the wanted record.
+    metadataPrefix = Metadata format to be delivered. Default value is MODS.
     
-- **retrieve_set_metadata(Set, metadataPrefix = 'mods')**:
-   
-    Downloads metadata records of a given set and in a given format from OAI to XML files in a certain folder structure.
-    Therefore it
-    * requests e-rara OAI-PMH interface according to a set 
-    * creates the following folder path: set > format
-    * retrieves the set's e-rara IDs
-    * retrieves metadata according to set e-rara IDs and given metadata format (default: MODS)
-    * writes metadata into single <e_rara_id>.xml files in the metadata > set > format folder.
+- **set_size(Set)**:
+    Accesses the OAI interface and retrieves the size of a given OAI set.
     
     Parameters:
-    * Set = The wanted collection/set.
-    * metadataPrefix = Metadata format to be delivered (default value is MODS).
+    * Set: The 'setSpec' short cut of the desired OAI set.
+    
+- **retrieve_set_metadata(Set, foldername, metadataPrefix = 'mods')**:
+   
+    Downloads metadata records of a given set and in a given format from OAI to XML files
+    in a designated folder.
+    Therefore it
+    * requests e-rara OAI-PMH interface according to a set 
+    * creates a folder for the records according to parameter foldername
+    * retrieves the set's e-rara IDs
+    * retrieves metadata according to IDs and given metadata format (default: MODS)
+    * saves metadata to single <e-rara ID>.xml files in the folder.
+    
+    Parameters:
+    Set = The 'setSpec' short cut of the desired OAI set.
+    foldername = The name of the folder which will be created to hold the metadata files.
+    metadataPrefix = Metadata format to be delivered. Default value is MODS.
+ 
 
 ## 3. Download fulltext files from e-rara website
 
@@ -71,24 +80,26 @@ The chapter defines the following functions:
 
 - **download_fulltext(ID)**:
     
-    Downloads a certain metadata record from OAI to TXT file.
-    Builds with e-rara ID the fulltext URL, reads the TXT file and writes them in a TXT file on local disk.
+    Downloads a certain fulltext file of TXT format.
+    Builds with e-rara ID the fulltext URL, reads the TXT and saves it to <e-rara ID>.txt file on local disk.
     
     Parameter:
-    * ID = E-rara ID of the wanted record.
+    * ID = E-rara ID of the desired record.
 
-- **retrieve_set_fulltexts(Set)**:
+- **retrieve_set_fulltexts(Set, foldername)**:
     
-    Downloads fulltexts of a given set from e-rara website to TXT files in a certain folder structure.
+    Downloads fulltext files of TXT format of a given OAI set to a certain folder.
+    Builds with e-rara IDs the fulltext URLs, reads the TXT and saves them to <e-rara ID>.txt files on local disk.
     Therefore it
     * requests e-rara OAI-PMH interface according to a set 
-    * creates the folder 'set'
+    * creates a folder according to parameter foldername
     * retrieves the set's e-rara IDs from OAI interface
-    * retrieves fulltexts according to set e-rara IDs from e-rara website
-    * writes metadata into single <e_rara_id>.txt files in the fulltexts > set folder
-    * finally checks all metadata files if they are empty, and deletes those empty files.
+    * retrieves fulltexts according to the IDs from e-rara website
+    * writes fulltexts into single <e_rara_id>.txt files in the folder
+    * finally checks all fulltext files in the folder if they are empty, and deletes those empty files.
     
     Parameters:
-    * Set = The wanted collection/set.
+    Set = The 'setSpec' short cut of the desired set.
+    foldername = The name of the folder which will be created to hold the fulltext files.
     
     
