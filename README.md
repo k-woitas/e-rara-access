@@ -5,7 +5,7 @@ This little repo offers helping hands to **collect metadata and fulltexts of [e-
 The Jupyter notebook [e_rara_metadata_fulltext_access.ipynb](https://github.com/k-woitas/e-rara-access/blob/main/code/e_rara_metadata_fulltext_access.ipynb)
 retrieves metadata in various metadata formats from the [OAI-PMH](https://www.openarchives.org/pmh/) interface of e-rara, and fulltexts from the e-rara website.
 
-No Python or Jupyter available on your machine? Use the interactive Jupyter notebook with Binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/k-woitas/e-rara-access/HEAD?filepath=code%2Fe_rara_metadata_fulltext_access.ipynb)
+No Python or Jupyter available on your machine? Use the online Jupyter notebook with Binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/k-woitas/e-rara-access/HEAD?filepath=code%2Fe_rara_metadata_fulltext_access.ipynb)
 
 A static version of the Notebook is available with [Jupyter nbviewer](https://nbviewer.jupyter.org/github/k-woitas/e-rara-access/blob/main/code/e_rara_metadata_fulltext_access.ipynb).
 
